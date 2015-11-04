@@ -4,10 +4,12 @@ class GuestbookController < ApplicationController
 
   def output
     
-    guestbook = Guestbook.new
-    guestbook.name = params[:name]
-    guestbook.contents = params[:contents]
-    guestbook.save
+    unless params[:name].blank? || params[:contents].blank?
+      guestbook = Guestbook.new
+      guestbook.name = params[:name]
+      guestbook.contents = params[:contents]
+      guestbook.save
+    end
     
     @output = Guestbook.all
     
