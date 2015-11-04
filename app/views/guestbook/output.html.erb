@@ -1,9 +1,13 @@
 <div class="container">
 
-<h1>Guestbook#output</h1>
-<p>Find me in app/views/guestbook/output.html.erb</p>
-
-이름: <%=@input_name%>
-내용: <%=@input_text%>
+    <h1>Guestbook#output</h1>
+    <p>Find me in app/views/guestbook/output.html.erb</p>
+    
+    <% @output.each do |x| %>
+        <div class="jumbotron">
+            <h3><span style="color: blue"><%=x.name%></span>이 작성하신 방명록</h3>
+            <p><%=x.contents%></p>
+        </div>
+    <% end %>
 
 </div>

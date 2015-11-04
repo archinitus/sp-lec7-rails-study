@@ -3,7 +3,13 @@ class GuestbookController < ApplicationController
   end
 
   def output
-    @input_name = params[:name]
-    @input_text = params[:contents]
+    
+    guestbook = Guestbook.new
+    guestbook.name = params[:name]
+    guestbook.contents = params[:contents]
+    guestbook.save
+    
+    @output = Guestbook.all
+    
   end
 end
